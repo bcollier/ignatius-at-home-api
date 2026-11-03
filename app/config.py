@@ -126,5 +126,5 @@ TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID", "").strip()
 TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN", "").strip()
 TWILIO_FROM = os.environ.get("TWILIO_FROM", "").strip()  # the sending number, +1…
 CRON_SECRET = os.environ.get("CRON_SECRET", "").strip()
-APP_URL = os.environ.get("APP_URL", "https://bcollier.github.io/ignatius-hw4-web/").strip()
+APP_URL = os.environ.get("APP_URL", "https://bcollier.github.io/ignatius-at-home-web/").strip()
 PUBLIC_API_URL = os.environ.get("PUBLIC_API_URL", "https://ignatius-hw4-api.onrender.com").strip()  # for the calendar feed's address

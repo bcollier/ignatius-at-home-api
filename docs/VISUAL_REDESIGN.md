@@ -2,7 +2,7 @@
 
 September 26, 2026. The spec behind the app's look: why the earlier look failed, the direction chosen, the mockups that were approved, the decisions made on them, and what was built. The mockups were made in Claude Design; the images here are renders of those boards (paintings are public domain).
 
-This was step six of the [build method](https://github.com/bcollier/ignatius-hw4-web#the-method-spec-driven-in-phases), after the [original spec](original-spec/), the spec-driven revision ([IMPROVEMENTS.md](IMPROVEMENTS.md)) and the [code cleanup](CODE_CLEANUP.md). The result is described in the frontend README's [design choices](https://github.com/bcollier/ignatius-hw4-web#12-design-choices).
+This was step six of the [build method](https://github.com/bcollier/ignatius-at-home-web#the-method-spec-driven-in-phases), after the [original spec](original-spec/), the spec-driven revision ([IMPROVEMENTS.md](IMPROVEMENTS.md)) and the [code cleanup](CODE_CLEANUP.md). The result is described in the frontend README's [design choices](https://github.com/bcollier/ignatius-at-home-web#12-design-choices).
 
 ## 1. The problem
 

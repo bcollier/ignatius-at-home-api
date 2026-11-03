@@ -2,7 +2,7 @@
 
 A spec for one extended Claude Code run of about 4 hours. Everything in it ships; there is no optional tier. It reshapes the web app from a control panel into a place to pray, adds the few backend pieces that make a week-by-week retreat feel like a practice, and leaves the working parts alone.
 
-Repos: the web app is `~/Code/ignatius-hw4-web` (plain HTML, CSS, JS on GitHub Pages); the API is `~/Code/ignatius-hw4-api` (FastAPI on Render). Read `docs/ARCHITECTURE.md` first. Everything below refers to those two repos.
+Repos: the web app is `~/Code/ignatius-at-home-web` (plain HTML, CSS, JS on GitHub Pages); the API is `~/Code/ignatius-at-home-api` (FastAPI on Render). Read `docs/ARCHITECTURE.md` first. Everything below refers to those two repos.
 
 ## What's wrong today (the review)
 

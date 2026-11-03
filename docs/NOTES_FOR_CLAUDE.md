@@ -1,18 +1,19 @@
 # Working notes for Claude (Ignatius at Home)
 
-Handoff notes so a fresh session can pick up without the old conversation. Last updated 2026-10-05. Keep this file current when you finish a piece of work.
+Handoff notes so a fresh session can pick up without the old conversation. Last updated 2026-11-03. Keep this file current when you finish a piece of work.
 
 ## The project
 
-- **Web:** `~/Code/ignatius-hw4-web` (GitHub `bcollier/ignatius-hw4-web`), plain HTML/CSS/JS with no build step, on GitHub Pages: https://bcollier.github.io/ignatius-hw4-web/
-- **API:** `~/Code/ignatius-hw4-api` (GitHub `bcollier/ignatius-hw4-api`), FastAPI on Render: https://ignatius-hw4-api.onrender.com
+- **Web:** `~/Code/ignatius-at-home-web` (GitHub `bcollier/ignatius-at-home-web`), plain HTML/CSS/JS with no build step, on GitHub Pages: https://bcollier.github.io/ignatius-at-home-web/
+- **API:** `~/Code/ignatius-at-home-api` (GitHub `bcollier/ignatius-at-home-api`), FastAPI on Render: https://ignatius-hw4-api.onrender.com (Render can't rename an onrender.com address; a new service is needed for a new one)
+- **Version 2.0 rename (2026-11-03):** the repos were `ignatius-hw4-web` and `ignatius-hw4-api`. The plain name `bcollier/ignatius-at-home` is Ben's private planning repo from September (specs, source PDFs), so leave it alone. The old Pages address `bcollier.github.io/ignatius-hw4-web/` needs a small public redirect repo under the old name; creating it was blocked by the permission classifier, so check whether Ben made it. The Supabase Site URL (shared project with Faculty Twin and Connections) still names the old address; the redirect allow list already covers `https://bcollier.github.io/**`.
 - **Data:** Supabase holds the `retreats` table (one JSON `data` column per retreat), the `llm_calls` table, and a private storage bucket `retreats`. Each user's files are under `{user_id}/…`.
 - **Ben's account:** user id `7423e07a-dff6-4020-885e-236b08edcd28`. The Week 3 retreat (PrepDays PU3) is `b1d81236-646d-4755-8966-fa9ceff92744`; its series is weeks 1 (`fc8e36e6…`) and 2 (`eac523db…`).
-- **Secrets** are only in `ignatius-hw4-api/.env` and on Render. Never print, paste or commit them. `.env` has `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, OpenRouter, ElevenLabs, Jetstream, `TYPESAFE_API_KEY` and `CRON_SECRET`.
+- **Secrets** are only in `ignatius-at-home-api/.env` and on Render. Never print, paste or commit them. `.env` has `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, OpenRouter, ElevenLabs, Jetstream, `TYPESAFE_API_KEY` and `CRON_SECRET`.
 
 ## Standing rules (from Ben)
 
-1. **Log every prompt** Ben types in `PROMPT_LOG.md` in **both** repos, with the same numbered entry in each (`### N. date, time UTC`, the prompt quoted, then "**What was done:**"), and update the "N in all" count in the header. The logs are at **283**; the next entry is 284. This is a homework requirement.
+1. **Log every prompt** Ben types in `PROMPT_LOG.md` in **both** repos, with the same numbered entry in each (`### N. date, time UTC`, the prompt quoted, then "**What was done:**"), and update the "N in all" count in the header. The logs are at **285**; the next entry is 286. Version 1.0 began as homework, which required this log; keep it going.
 2. **Commit trailers:** `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>` and `Claude-Session: …`, plus any trailer a system reminder gives.
 3. **Before pushing the API, check the server is idle.** A push restarts Render and kills running builds. Check the latest `llm_calls.created_at` and the retreats' `days.*.listening.updated_at`. The script `push_when_quiet.sh` in the old scratchpad did this: it pushed after 10 quiet minutes. Rewrite it if needed. Web pushes are always safe.
 4. **Never substitute pictures in a user-uploaded retreat.** The handout images are chosen prayer icons. Only fix how they're displayed (small images are framed in `look.js` and CSS).
@@ -25,9 +26,9 @@ Handoff notes so a fresh session can pick up without the old conversation. Last 
 ## How to run and test locally
 
 ```
-cd ~/Code/ignatius-hw4-api
+cd ~/Code/ignatius-at-home-api
 LOCAL_MODE=1 SUPABASE_URL= DATA_DIR=/tmp/ignatius-rd2 ALLOWED_ORIGINS=http://localhost:5500,http://localhost:5501 .venv/bin/uvicorn app.main:app --port 8001
-cd ~/Code/ignatius-hw4-web && python3 -m http.server 5501
+cd ~/Code/ignatius-at-home-web && python3 -m http.server 5501
 ```
 
 - In the browser, set `localStorage.apiBase = "http://localhost:8001"`.
@@ -35,7 +36,7 @@ cd ~/Code/ignatius-hw4-web && python3 -m http.server 5501
 - Tests: `.venv/bin/python -m pytest -q tests` (161 pass).
 - Lint: `.venv/bin/ruff check --select F,E9,B --ignore B008 app evals tests`.
 - Screenshots use puppeteer-core with system Chrome. The old scripts were in the scratchpad's `shots/`, now likely gone. Pattern: `NODE_PATH=…/node_modules node script.js` with `executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"`.
-- **Web cache-busting:** bump `?v=N` in `index.html` on every web change. It's now `v=117`.
+- **Web cache-busting:** bump `?v=N` in `index.html` on every web change. It's now `v=118`.
 - After any inline-script change, run `python3 tools/csp_hash.py` (it checks the CSP hash).
 - The web scripts share one global scope, so name clashes break the app. Prefix the globals in new files (e.g. `ev…` in evals.js, `hl…` in highlights.js).
 

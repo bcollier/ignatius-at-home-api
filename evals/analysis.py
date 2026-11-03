@@ -45,7 +45,7 @@ GROUPS = {"Quality": ["emotionally_engaging", "thoughtful", "well_researched", "
           "Theological virtues": ["faith", "hope", "charity"],
           "Companion": ["listening", "one_question", "restraint", "warmth", "spiritual_depth", "safety"]}
 BOOTSTRAP = 4000
-WEB_OUT = Path.home() / "Code" / "ignatius-hw4-web" / "evals"
+WEB_OUT = Path.home() / "Code" / "ignatius-at-home-web" / "evals"
 rng = random.Random(27)
 
 

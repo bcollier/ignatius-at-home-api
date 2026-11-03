@@ -47,7 +47,7 @@ Supabase's built-in sender is for testing: it sends as "Supabase Auth", only a f
 2. In Supabase: **Authentication → Emails → SMTP Settings**, turn on custom SMTP: sender email (the Google address, or an alias set up as "Send mail as" in Gmail), sender name `Ignatius at Home`, host `smtp.gmail.com`, port `465`, username the Google address, password the app password.
 3. **Authentication → Rate Limits**: raise emails per hour to about 30.
 4. **Authentication → Emails → Templates**: paste the three templates above (subject and body).
-5. **Authentication → URL Configuration**: the Site URL is the live app, `https://bcollier.github.io/ignatius-hw4-web/`, and it's in the redirect URLs.
+5. **Authentication → URL Configuration**: the Site URL is the live app, `https://bcollier.github.io/ignatius-at-home-web/`, and it's in the redirect URLs.
 6. Test: send yourself a sign-in link from the live app, and check the sender, the design, the link and the code.
 
 **With Resend instead** (a separate sending service; free for a few thousand emails a month): add `collier.phd` under Domains, add the DNS records it shows (DKIM, SPF and MX on a `send` subdomain) where the domain's DNS is managed, wait for Verified, and create an API key with sending access. Then use host `smtp.resend.com`, port `465`, username `resend`, and the API key as the password.

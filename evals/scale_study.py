@@ -28,7 +28,7 @@ Variants (prompts in app/agent_prompts/eval_scale_*.md):
              every point anchored, critique first, references, a quote for any 6 or 7
 
   .venv/bin/python -m evals.scale_study [--run full] [--collect] [--analyse]
-Writes evals/runs/<run>/scale_study/ (cache) and ~/Code/ignatius-hw4-web/evals/scales.json.
+Writes evals/runs/<run>/scale_study/ (cache) and ~/Code/ignatius-at-home-web/evals/scales.json.
 """
 
 import argparse
@@ -92,7 +92,7 @@ VARIANTS = {
 }
 RETEST_SHARE = 4  # one item in four is asked twice
 HERE = Path(__file__).resolve().parent
-WEB_OUT = Path.home() / "Code" / "ignatius-hw4-web" / "evals" / "scales.json"
+WEB_OUT = Path.home() / "Code" / "ignatius-at-home-web" / "evals" / "scales.json"
 rng = random.Random(28)
 
 

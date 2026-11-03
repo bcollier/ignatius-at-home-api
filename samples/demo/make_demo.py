@@ -19,7 +19,7 @@ import pymupdf
 
 HERE = Path(__file__).parent
 IMG = HERE / "images"
-UA = {"User-Agent": "IgnatiusAtHomeHW/0.1 (student project; https://github.com/bcollier/ignatius-hw4-api)"}
+UA = {"User-Agent": "IgnatiusAtHome/2.0 (https://github.com/bcollier/ignatius-at-home-api)"}
 
 DAYS = [
     {

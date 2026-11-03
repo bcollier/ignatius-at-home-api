@@ -1,6 +1,6 @@
 # Code cleanup: a readability pass
 
-A complete readability pass over both repositories: the API (`ignatius-hw4-api`, Python) and the web app (`ignatius-hw4-web`, HTML, CSS and JavaScript). The goal was code a person can read top to bottom: small functions with names that say what they do, constants instead of unexplained numbers, and comments that explain *why*.
+A complete readability pass over both repositories: the API (`ignatius-at-home-api`, Python) and the web app (`ignatius-at-home-web`, HTML, CSS and JavaScript). The goal was code a person can read top to bottom: small functions with names that say what they do, constants instead of unexplained numbers, and comments that explain *why*.
 
 This was a pure refactor. No route, response, stored format, prompt or piece of UI text changed. Section 5 describes how that was checked.
 
@@ -20,7 +20,7 @@ These follow Robert C. Martin's *Clean Code*, adapted to a small app with no bui
 - **Comments that explain why, in the app's own plain voice.** The pass removed comments that no longer matched the code (for example, "few retreats" on free accounts, a cap that no longer exists). It added comments where a choice isn't obvious: why check order matters, why a failed clip is retried, why prices appear only in Advanced.
 - **No dead code.** Unused functions, variables, imports and CSS rules left behind by earlier changes were removed.
 
-## 2. API (`ignatius-hw4-api`)
+## 2. API (`ignatius-at-home-api`)
 
 ### `app/main.py` → `main.py` + `checks.py` + `access.py` + `routes/`
 
@@ -136,7 +136,7 @@ Other changes in this area:
 - **New: `tests/test_elevenlabs.py`**, run against a fake ElevenLabs server. It covers recording, with timings kept and a busy reply retried, and each explained failure (401, 402, 429, 500). This path had no tests before the refactor. The new tests pass against both the old and new code.
 - `tests/test_build_log.py` imports `log_row` from its new home.
 
-## 3. Web app (`ignatius-hw4-web`)
+## 3. Web app (`ignatius-at-home-web`)
 
 ### `app.js` (2,391 lines) → `js/` (13 files)
 

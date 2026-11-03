@@ -35,7 +35,7 @@ import pymupdf
 
 HERE = Path(__file__).parent
 FONTS = HERE / "fonts"
-UA = {"User-Agent": "IgnatiusAtHomeHW/0.1 (student project; https://github.com/bcollier/ignatius-hw4-api)"}
+UA = {"User-Agent": "IgnatiusAtHome/2.0 (https://github.com/bcollier/ignatius-at-home-api)"}
 FONT_URL = "https://raw.githubusercontent.com/octaviopardo/EBGaramond12/master/fonts/ttf/{}.ttf"
 FONT_FILES = ["EBGaramond-Regular", "EBGaramond-Italic", "EBGaramond-SemiBold", "EBGaramond-SemiBoldItalic"]
 OK_LICENSES = ("Public domain", "CC0", "PD")

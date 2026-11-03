@@ -1,6 +1,6 @@
 # Code review guidance
 
-How to review a change to Ignatius at Home (this API and the [web app](https://github.com/bcollier/ignatius-hw4-web)), for a person or an agent. The principles are the ones the [code cleanup](CODE_CLEANUP.md) applied; the checklists come from real bugs in this project, each noted where it happened, so every item is here for a reason.
+How to review a change to Ignatius at Home (this API and the [web app](https://github.com/bcollier/ignatius-at-home-web)), for a person or an agent. The principles are the ones the [code cleanup](CODE_CLEANUP.md) applied; the checklists come from real bugs in this project, each noted where it happened, so every item is here for a reason.
 
 ## 1. How a change should arrive
 

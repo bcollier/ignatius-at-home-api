@@ -50,7 +50,7 @@ All reliability figures are computed **within a track** and then averaged, weigh
 
 - `evals/scale_study.py`: collection (cached under `evals/runs/full/scale_study/<variant>/`), statistics and the tables below. Run `.venv/bin/python -m evals.scale_study --collect` (resumable) or `--analyse`.
 - `app/agent_prompts/eval_scale_{anchored,ten,exemplar,critique,checklist,pairwise,ranking}.md`: the judge prompts (sections `pieces` or `companion`; the checklist has `heart`, `deep` and `companion`).
-- `~/Code/ignatius-hw4-web/evals/scales.json`: all results (a pretty-printed copy is at `evals/runs/full/scale_study/scales.json`).
+- `~/Code/ignatius-at-home-web/evals/scales.json`: all results (a pretty-printed copy is at `evals/runs/full/scale_study/scales.json`).
 
 ## `scales.json` fields
 

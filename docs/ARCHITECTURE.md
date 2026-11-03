@@ -35,7 +35,7 @@ flowchart LR
     end
 
     subgraph GH["GitHub"]
-        PAGES["GitHub Pages<br/>bcollier.github.io/ignatius-hw4-web"]
+        PAGES["GitHub Pages<br/>bcollier.github.io/ignatius-at-home-web"]
     end
 
     subgraph RENDER["Render (free web service)"]
@@ -102,10 +102,10 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    DEV["Developer machine<br/>(Mac mini)"] -- "git push" --> REPO_API["GitHub repo<br/>bcollier/ignatius-hw4-api"]
-    DEV -- "git push" --> REPO_WEB["GitHub repo<br/>bcollier/ignatius-hw4-web"]
+    DEV["Developer machine<br/>(Mac mini)"] -- "git push" --> REPO_API["GitHub repo<br/>bcollier/ignatius-at-home-api"]
+    DEV -- "git push" --> REPO_WEB["GitHub repo<br/>bcollier/ignatius-at-home-web"]
 
-    REPO_WEB -- "Pages builds main on every push" --> PAGES["GitHub Pages<br/>https://bcollier.github.io/ignatius-hw4-web/"]
+    REPO_WEB -- "Pages builds main on every push" --> PAGES["GitHub Pages<br/>https://bcollier.github.io/ignatius-at-home-web/"]
 
     REPO_API -- "render.yaml Blueprint<br/>auto-deploy on push to main" --> BUILD["Render build<br/>pip install -r requirements.txt"]
     BUILD --> SVC["Render web service (free)<br/>uvicorn app.main:app --host 0.0.0.0 --port $PORT<br/>health check /api/health"]
@@ -118,7 +118,7 @@ flowchart TB
 
 **How each part is set up**
 
-- **Frontend.** GitHub Pages serves the `main` branch of `ignatius-hw4-web` as it is. `config.js` picks the API address: `http://localhost:8000` when the page itself is on localhost, otherwise the Render URL. Script and stylesheet links carry a version (`app.js?v=9`) so browsers fetch new code after each release.
+- **Frontend.** GitHub Pages serves the `main` branch of `ignatius-at-home-web` as it is. `config.js` picks the API address: `http://localhost:8000` when the page itself is on localhost, otherwise the Render URL. Script and stylesheet links carry a version (`app.js?v=9`) so browsers fetch new code after each release.
 - **Backend.** Render builds from `render.yaml`: a free Python web service in Virginia. Secrets are typed into Render's dashboard (`sync: false` in the Blueprint), never committed. Every push to `main` redeploys.
 - **Free-tier behavior.** The Render service sleeps after 15 minutes without traffic and takes about a minute to wake. Its disk is temporary, which is why nothing is kept there: retreats live in Postgres and files in Storage. The page explains a slow first request and offers Retry.
 - **Supabase.** One project provides Auth, Postgres and Storage. The table is created once with SQL; the private `retreats` bucket is created by the API on startup (`SupabaseStore.setup`).
@@ -1202,7 +1202,7 @@ flowchart LR
 
 ## 14. Code map
 
-**Backend (`ignatius-hw4-api`)**
+**Backend (`ignatius-at-home-api`)**
 
 | File | Responsibility |
 | --- | --- |
@@ -1236,7 +1236,7 @@ flowchart LR
 | `tests/` | API flow, errors, storage and auth against a fake Supabase, cost math, text helpers |
 | `samples/` | Public-domain sample uploads and the script that builds them |
 
-**Frontend (`ignatius-hw4-web`)**
+**Frontend (`ignatius-at-home-web`)**
 
 | File | Responsibility |
 | --- | --- |

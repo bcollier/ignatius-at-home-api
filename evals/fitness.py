@@ -36,7 +36,7 @@ from pathlib import Path
 
 from .common import COMPANION_SCALES, HERE, MODELS, SCALES, goodness
 
-WEB_OUT = Path.home() / "Code" / "ignatius-hw4-web" / "evals" / "fitness.json"
+WEB_OUT = Path.home() / "Code" / "ignatius-at-home-web" / "evals" / "fitness.json"
 RETREAT_DAYS = 7
 BOOTSTRAP = 2000
 rng = random.Random(7)

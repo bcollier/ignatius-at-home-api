@@ -1,7 +1,7 @@
 """Write the app's default prompts with Claude Fable (via OpenRouter)."""
 import asyncio, re, sys, json
 from pathlib import Path
-sys.path.insert(0, str(Path.home() / "Code/ignatius-hw4-api"))
+sys.path.insert(0, str(Path.home() / "Code/ignatius-at-home-api"))
 from app import llm, pricing
 
 HERE = Path(__file__).parent

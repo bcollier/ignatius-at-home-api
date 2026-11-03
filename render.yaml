@@ -2,7 +2,7 @@
 # Secrets (sync: false) are entered in the dashboard, never committed.
 services:
   - type: web
-    name: ignatius-hw4-api
+    name: ignatius-hw4-api  # the live Render service keeps its first name; Render cannot rename its onrender.com address
     runtime: python
     plan: free
     region: virginia
