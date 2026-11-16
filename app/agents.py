@@ -23,7 +23,7 @@ AGENTS = [
      "default": lambda: prompts.PLAN_INSTRUCTIONS, "fixed": "plan_rules"},
     {"id": "preview", "group": "Making a retreat", "name": "The first look", "file": "preview.md", "model": None,
      "what": "As soon as you choose a file, reads its start and gives it a working title and two or three sentences on what it is, so you can check it's the right file.",
-     "when": "When you choose a file on New retreat, before anything is made. It uses the fast model of the family you chose for planning (Llama 4 Scout or Claude Haiku 4.5), so the answer comes in a second or two.",
+     "when": "When you choose a file on New retreat, before anything is made. It uses the fast model of the family you chose for planning (Llama 4 Scout or Claude Haiku 5.5), for a quick answer.",
      "gets": "The file name and the start of the document (or its first page, if it's a scan or photo).",
      "default": lambda: prompts._prompt("preview")},
     {"id": "inspiration", "group": "Making a retreat", "name": "Idea to passages", "file": "inspiration.md", "model": "plan",

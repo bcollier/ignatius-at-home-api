@@ -47,7 +47,7 @@ OPENAI_BRAINS = {"gpt-5.5": "OpenAI GPT-5.5 (about 3 seconds, a few cents a repl
 CLAUDE_BRAINS = {
     "anthropic/claude-fable-5.1": "Claude Fable 5.1 (the finest writer; about 6 seconds, 2 to 3 cents a reply)",
     "anthropic/claude-opus-5.5": "Claude Opus 5.5 (about 6 seconds, 1 to 2 cents a reply)",
-    "anthropic/claude-haiku-4.5": "Claude Haiku 4.5 (about 2 seconds, under a cent)",
+    "anthropic/claude-haiku-5.5": "Claude Haiku 5.5 (the cheapest Claude; under a tenth of a cent a reply)",
 }
 
 # Added to the companion's instructions: it is heard, not read.

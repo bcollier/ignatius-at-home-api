@@ -505,7 +505,7 @@ Every error has the shape `{"error": {"status": 400, "message": "..."}}`, with a
 | `GET /api/me` | 🔒 | | `{id, email, anonymous, mode}` |
 | `GET /api/retreats` | 🔒 | | `{retreats: [...], examples: [...]}`: summaries with status, days, progress, day states, prayed counts, series; examples add `demo`, `read_only`, `cover` |
 | `POST /api/retreats` | 🔒 | multipart: `file` (.pdf/.docx, ≤15 MB, ≤40 pages), `model`, `plan_prompt`, `series`, `start_date`, `options` (JSON: voices, write model, research service, prompts, guidance, tailoring) | **202**, retreat `planning`; then `building` with `progress`; then `ready` |
-| `POST /api/retreats/preview` | 🔒 | multipart: `file`, `model` (the planning model; the preview uses the fast one of its family: Llama 4 Scout or Claude Haiku 4.5) | `{title, description, pages}`: a first look at the file, so the person can check it's the right one. Nothing is stored; 20 per account per 10 minutes |
+| `POST /api/retreats/preview` | 🔒 | multipart: `file`, `model` (the planning model; the preview uses the fast one of its family: Llama 4 Scout or Claude Haiku 5.5) | `{title, description, pages}`: a first look at the file, so the person can check it's the right one. Nothing is stored; 20 per account per 10 minutes |
 | `GET/POST/DELETE /api/calendar/feed` | 🔒 | `timezone` (POST) | The person's private calendar feed: its `https` and `webcal` addresses, turned on or off |
 | `GET /api/calendar/{token}.ics` | the token | – | An iCalendar feed: a timed event for each prayer (from when it began to when it finished) and each finished practice |
 | `POST /api/practice/done` | 🔒 | `session`, `title`, `began_at` | A finished practice, kept for the calendar |

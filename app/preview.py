@@ -18,7 +18,7 @@ MAX_DESCRIPTION = 700
 # A quick answer matters more here than the best writing, so the preview uses the fast
 # model from the same family as the one chosen (the document stays with that provider).
 FAST_FREE = "jetstream/llama-4-scout"
-FAST_CLAUDE = "anthropic/claude-haiku-4.5"
+FAST_CLAUDE = "anthropic/claude-haiku-5.5"
 
 
 def fast_model(model: str) -> str:

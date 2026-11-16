@@ -33,7 +33,7 @@ Placeholders in `{braces}` are filled in by the code; keep them. Files with `## 
 
 | Agent | File | When it runs | What it's given | Model | Editable in the app? |
 | --- | --- | --- | --- | --- | --- |
-| **The companion** (the live conversation, "Talk now") | [`companion.md`](companion.md) | Every conversation | The person's notes, **the time where they are**, **when they last talked** ("about 3 hours ago"), a memory of older talks, recent transcripts, and the retreat day by day (built in `app/talk.py`, `context()`) | OpenAI gpt-live-1 or xAI Grok voice (live), or in turns: Muse Glimmer (free), Claude Fable 5.1 / Opus 5.5 / Haiku 4.5, or OpenAI GPT-5.5 / 5.4 mini | Yes, per person: Talk it over → "The companion's instructions (advanced)" |
+| **The companion** (the live conversation, "Talk now") | [`companion.md`](companion.md) | Every conversation | The person's notes, **the time where they are**, **when they last talked** ("about 3 hours ago"), a memory of older talks, recent transcripts, and the retreat day by day (built in `app/talk.py`, `context()`) | OpenAI gpt-live-1 or xAI Grok voice (live), or in turns: Muse Glimmer (free), Claude Fable 5.1 / Opus 5.5 / Haiku 5.5, or OpenAI GPT-5.5 / 5.4 mini | Yes, per person: Talk it over → "The companion's instructions (advanced)" |
 | Turn-taking addendum | [`companion_spoken.md`](companion_spoken.md) | Added to the companion in turn-taking mode | | The turns brain | No |
 | **Companion's memory** | [`companion_memory.md`](companion_memory.md) (`{limit}`) | When older transcripts get long | The existing memory and the older transcripts | Claude Opus 5.5 (premium) or Jetstream2 | No |
 
