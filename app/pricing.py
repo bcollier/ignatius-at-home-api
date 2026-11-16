@@ -18,10 +18,13 @@ log = logging.getLogger(__name__)
 # (OpenRouter id, Anthropic API id, label). Older models use the basic web search tool.
 MODELS = [
     ("anthropic/claude-opus-5.5", "claude-opus-5-5", "Claude Opus 5.5 (default)"),
+    ("anthropic/claude-fable-5.2", "claude-fable-5-2", "Claude Fable 5.2 (most capable)"),
+    ("anthropic/claude-fable-5.1", "claude-fable-5-1", "Claude Fable 5.1"),
     ("anthropic/claude-opus-5", "claude-opus-5", "Claude Opus 5"),
-    ("anthropic/claude-fable-5.1", "claude-fable-5-1", "Claude Fable 5.1 (most capable)"),
-    ("anthropic/claude-sonnet-5", "claude-sonnet-5", "Claude Sonnet 5 (faster, cheaper)"),
-    ("anthropic/claude-haiku-4.5", "claude-haiku-4-5", "Claude Haiku 4.5 (fastest, cheapest)"),
+    ("anthropic/claude-sonnet-5.5", "claude-sonnet-5-5", "Claude Sonnet 5.5 (faster, cheaper)"),
+    ("anthropic/claude-sonnet-5", "claude-sonnet-5", "Claude Sonnet 5"),
+    ("anthropic/claude-haiku-5.5", "claude-haiku-5-5", "Claude Haiku 5.5 (fastest, cheapest)"),
+    ("anthropic/claude-haiku-4.5", "claude-haiku-4-5", "Claude Haiku 4.5"),
 ]
 BASIC_SEARCH_MODELS = {"anthropic/claude-haiku-4.5"}
 
@@ -44,11 +47,16 @@ def is_jetstream(model: str) -> bool:
     return model.startswith(JETSTREAM_PREFIX)
 
 # Dollars per token, and per web search. Used when OpenRouter can't be reached.
+# Anthropic's list prices as of 2026-11-16; cache writes are the 5-minute rate.
+# Haiku 5.5 is the rate for prompts up to 100k tokens (longer prompts cost 5x).
 FALLBACK_PRICES = {
-    "anthropic/claude-opus-5": {"prompt": 5e-6, "completion": 25e-6, "input_cache_read": 0.5e-6, "input_cache_write": 6.25e-6, "web_search": 0.01},
     "anthropic/claude-opus-5.5": {"prompt": 4e-6, "completion": 20e-6, "input_cache_read": 0.2e-6, "input_cache_write": 5e-6, "web_search": 0.01},
+    "anthropic/claude-fable-5.2": {"prompt": 8e-6, "completion": 40e-6, "input_cache_read": 0.2e-6, "input_cache_write": 10e-6, "web_search": 0.01},
     "anthropic/claude-fable-5.1": {"prompt": 10e-6, "completion": 50e-6, "input_cache_read": 0.25e-6, "input_cache_write": 12.5e-6, "web_search": 0.01},
+    "anthropic/claude-opus-5": {"prompt": 5e-6, "completion": 25e-6, "input_cache_read": 0.5e-6, "input_cache_write": 6.25e-6, "web_search": 0.01},
+    "anthropic/claude-sonnet-5.5": {"prompt": 2e-6, "completion": 10e-6, "input_cache_read": 0.1e-6, "input_cache_write": 2.5e-6, "web_search": 0.01},
     "anthropic/claude-sonnet-5": {"prompt": 2e-6, "completion": 10e-6, "input_cache_read": 0.2e-6, "input_cache_write": 2.5e-6, "web_search": 0.01},
+    "anthropic/claude-haiku-5.5": {"prompt": 0.1e-6, "completion": 0.5e-6, "input_cache_read": 0.01e-6, "input_cache_write": 0.125e-6, "web_search": 0.01},
     "anthropic/claude-haiku-4.5": {"prompt": 1e-6, "completion": 5e-6, "input_cache_read": 0.1e-6, "input_cache_write": 1.25e-6, "web_search": 0.01},
 }
 
